@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+body {
+	font-family: 微软雅黑, Segoe UI;
+	
+}
+
+
+#msgs {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	width: 600px;
+	height: 400px;
+	background-color: #FDFDFD;
+	padding: 5px;
+	border: 1px solid #CCC;
+	margin: 5px 0;
+	color: #658EA6;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#input_msg {
+	font-size: 20px;
+	width: 495px;
+	height: 35px;
+	padding: 0 5px;
+}
+
+#send_button {
+	font-family: 微软雅黑, Segoe UI;
+	font-size: 16px;
+	width: 100px;
+	height: 40px;
+}
+
+.username {
+	color: #0000FF;
+	font-weight: normal;
+}
+
+span.spName {
+	color: #FF0000;
+}
+
+#emo {
+	margin: 10px 0;
+	width: 600px;
+}
+
+#emo a{
+	margin: 10px;
+}
+#emo a img {
+	margin: 2px;
+	border: none;
+}
+#emo a img:hover {
+	margin: 0;
+	border: 2px solid #FF5555;
+}
+
+
+
