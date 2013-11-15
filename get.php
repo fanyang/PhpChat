@@ -7,8 +7,8 @@ include 'common.php';
 header("Content-Type: application/json; charset=utf-8");
 
 //首次登陆，进行初始化，发送欢迎信息。
-if (!isLogin()) {
-	loginInit();
+if (!Login::isLogin()) {
+	Login::loginInit($db);
 	
 	$msg = new Message("<span class=\"spName\">系统消息</span>", time(), "欢迎你：" . $_SESSION['username']);
 	$msgArray = array($msg->toArray());
@@ -31,16 +31,15 @@ session_write_close(); //关闭session文件，避免block
  */
 
 while($count <= MAX_COUNT) {
-	$result = mysql_query("SELECT * FROM `message`
-			WHERE (`id` > {$currentMessageId}) AND (`uid` <> '{$sessionId}')");
+	$result = $db->getCurrentMessage($currentMessageId, $sessionId);
+	$numRows = count($result);
 
-	if ($result && mysql_num_rows($result) > 0) {
+	if ($numRows > 0) {
 		$msgs = array();
-		while($row = mysql_fetch_assoc($result)) {
-			
-			if ($row['id'] > $currentMessageId) $currentMessageId = $row['id'];
+		for ($i = 0; $i < $numRows; $i++) {
+			if ($result[$i]['id'] > $currentMessageId) $currentMessageId = $result[$i]['id'];
 
-			$msg = new Message($row['uname'], $row['create_at'], $row['content']);
+			$msg = new Message($result[$i]['uname'], $result[$i]['create_at'], $result[$i]['content']);
 			$msgs[] = $msg->toArray();
 		}
 		
@@ -58,20 +57,6 @@ while($count <= MAX_COUNT) {
 
 //没有新消息，返回一个空数组
 echo json_encode(array());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
