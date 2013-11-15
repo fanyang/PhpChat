@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 05, 2013 at 03:28 PM
+-- Generation Time: Nov 15, 2013 at 08:06 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -30,12 +30,12 @@ USE `chat_room`;
 
 CREATE TABLE IF NOT EXISTS `message` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ip` int(11) NOT NULL,
+  `uname` varchar(200) NOT NULL,
   `uid` varchar(200) NOT NULL,
   `create_at` int(11) NOT NULL,
   `content` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MEMORY DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
