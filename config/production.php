@@ -6,5 +6,5 @@ define("USLEEP_TIME", 1000000);
 
 $config['db']['host'] = "liaotian.db.10829965.hostedresource.com";
 $config['db']['username'] = "liaotian";
-$config['db']['password'] = "Liaotian123!";
+$config['db']['password'] = "";
 $config['db']['dbname'] = "liaotian";
